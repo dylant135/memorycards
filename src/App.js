@@ -107,23 +107,27 @@ function App() {
     return (
       <Card 
         key={card.id}
+        cards={cards}
         theCard={card}
         shuffle={shuffle}
+        setCards={setCards}
       />
     )
   })
 
   function shuffle() {
-    setIsPlaying(true)
     const mixed = cards.sort(() => Math.random() - 0.5)
     const newCards = [...mixed]
     setCards(newCards)
-    console.log(cards)
+  }
+
+  function startGame() {
+    setIsPlaying(true)
   }
 
   return (
     <div className="App">
-      <button className='startbtn' onClick={shuffle}>Start</button>
+      <button className='startbtn' onClick={startGame}>Start</button>
       {isPlaying && <div className='cardsContainer'>
         {theCards}
       </div>}
