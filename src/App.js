@@ -4,104 +4,115 @@ import Card from './components/Card';
 
 function App() {
   const [isPlaying, setIsPlaying] = React.useState(false)
-  const [cards, setCards] = React.useState([
+  const [score, setScore] = React.useState(0)
+  const [highScore, setHighscore] = React.useState(
+    JSON.parse(localStorage.getItem("highscore")) || 0
+  )
+  React.useEffect(() => {
+    if(score > highScore) {
+      localStorage.setItem("highscore", JSON.stringify(score))
+    }
+}, [highScore, score])
+
+  const initialState = [
     {
-      title: 'card1',
+      title: '1',
       imgUrl: 'placeholder',
       id: 1,
       clicked: false
     },
     {
-      title: 'card2',
+      title: '2',
       imgUrl: 'placeholder',
       id: 2,
       clicked: false
     },
     {
-      title: 'card3',
+      title: '3',
       imgUrl: 'placeholder',
       id: 3,
       clicked: false
     },
     {
-      title: 'card4',
+      title: '4',
       imgUrl: 'placeholder',
       id: 4,
       clicked: false
     },
     {
-      title: 'card5',
+      title: '5',
       imgUrl: 'placeholder',
       id: 5,
       clicked: false
     },
     {
-      title: 'card6',
+      title: '6',
       imgUrl: 'placeholder',
       id: 6,
       clicked: false
     },
     {
-      title: 'card7',
+      title: '7',
       imgUrl: 'placeholder',
       id: 7,
       clicked: false
     },
     {
-      title: 'card8',
+      title: '8',
       imgUrl: 'placeholder',
       id: 8,
       clicked: false
     },
     {
-      title: 'card9',
+      title: '9',
       imgUrl: 'placeholder',
       id: 9,
       clicked: false
     },
     {
-      title: 'card10',
+      title: '10',
       imgUrl: 'placeholder',
       id: 10,
       clicked: false
     },
     {
-      title: 'card11',
+      title: '11',
       imgUrl: 'placeholder',
       id: 11,
       clicked: false
     },
     {
-      title: 'card12',
+      title: '12',
       imgUrl: 'placeholder',
       id: 12,
       clicked: false
     },
     {
-      title: 'card13',
+      title: '13',
       imgUrl: 'placeholder',
       id: 13,
       clicked: false
     },
     {
-      title: 'card14',
+      title: '14',
       imgUrl: 'placeholder',
       id: 14,
       clicked: false
     },
     {
-      title: 'card15',
+      title: '15',
       imgUrl: 'placeholder',
       id: 15,
       clicked: false
     },
     {
-      title: 'card6',
+      title: '16',
       imgUrl: 'placeholder',
       id: 16,
       clicked: false
     }
-])
+  ]
+  const [cards, setCards] = React.useState(initialState)
 
   let theCards = cards.map(card => {
     return (
@@ -109,6 +120,10 @@ function App() {
         key={card.id}
         cards={cards}
         theCard={card}
+        score={score}
+        setScore={setScore}
+        initialState={initialState}
+        setIsPlaying={setIsPlaying}
         shuffle={shuffle}
         setCards={setCards}
       />
@@ -127,7 +142,12 @@ function App() {
 
   return (
     <div className="App">
-      <button className='startbtn' onClick={startGame}>Start</button>
+      <h1>Memory Cards</h1>
+      <div className='scoresContainer'>
+        <h2>Score: {score}</h2>
+        <h2>highScore: {highScore}</h2>
+      </div>
+      {!isPlaying && <div className='startbtnContainer'><button className='startbtn' onClick={startGame}>Start</button></div>}
       {isPlaying && <div className='cardsContainer'>
         {theCards}
       </div>}

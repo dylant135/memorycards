@@ -3,7 +3,9 @@ import React from "react";
 export default function Card(props) {
     function addClick() {
         if(props.theCard.clicked) {
-            return
+            props.setIsPlaying(false)
+            props.setScore(0)
+            props.setCards(props.initialState)
         } else {
             const clickedCard = props.cards.find((x) => x.title === props.theCard.title)
             const n = props.cards.map(card => {
@@ -26,8 +28,8 @@ export default function Card(props) {
                 }
             })
             const newArr = [...n]
+            props.setScore(prevScore => prevScore + 1)
             props.setCards(newArr)
-            console.log(props.cards)
     }}
 
     return (

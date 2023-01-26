@@ -3,6 +3,36 @@
   padding: 0;
 }
 
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 7px;
+}
+
+h2 {
+  text-align: right;
+  font-size: 1.5em;
+  margin-right: 20px;
+}
+
+.startbtn {
+  font-size: 1.5em;
+  padding: 7px;
+  margin: 7px;
+  background-color: #a2bde5;
+  border-radius: 5px;
+}
+
+.startbtn:hover {
+  background-color: #c5d6ef;
+}
+
+.startbtnContainer {
+  width: 80vw;
+  margin: auto;
+  text-align: center;
+}
+
 .card {
   border: 2px solid black;
   width: 100px;
@@ -10,7 +40,9 @@
 }
 
 .cardsContainer {
-  width: 80vw;
+  width: 500px;
+  height: 500px;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
