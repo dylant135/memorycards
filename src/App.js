@@ -14,100 +14,106 @@ function App() {
     }
 }, [highScore, score])
 
+  React.useEffect(() => {
+    if(score > highScore) {
+      setHighscore(score)
+    }
+  }, [highScore, score])
+
   const initialState = [
     {
-      title: '1',
-      imgUrl: 'placeholder',
+      title: 'Antman',
+      imgUrl: '/imgs/antman.jpeg',
       id: 1,
       clicked: false
     },
     {
-      title: '2',
-      imgUrl: 'placeholder',
+      title: 'Captain',
+      imgUrl: '/imgs/captain.png',
       id: 2,
       clicked: false
     },
     {
-      title: '3',
-      imgUrl: 'placeholder',
+      title: 'Falcon',
+      imgUrl: '/imgs/falcon.png',
       id: 3,
       clicked: false
     },
     {
-      title: '4',
-      imgUrl: 'placeholder',
+      title: 'Gamora',
+      imgUrl: '/imgs/gamora.png',
       id: 4,
       clicked: false
     },
     {
-      title: '5',
-      imgUrl: 'placeholder',
+      title: 'Groot',
+      imgUrl: '/imgs/groot.png',
       id: 5,
       clicked: false
     },
     {
-      title: '6',
-      imgUrl: 'placeholder',
+      title: 'Hawkeye',
+      imgUrl: '/imgs/hawkeye.jpeg',
       id: 6,
       clicked: false
     },
     {
-      title: '7',
-      imgUrl: 'placeholder',
+      title: 'Hulk',
+      imgUrl: '/imgs/hulk.jpeg',
       id: 7,
       clicked: false
     },
     {
-      title: '8',
-      imgUrl: 'placeholder',
+      title: 'Ironman',
+      imgUrl: '/imgs/ironman.png',
       id: 8,
       clicked: false
     },
     {
-      title: '9',
-      imgUrl: 'placeholder',
+      title: 'Black Panther',
+      imgUrl: '/imgs/panther.jpeg',
       id: 9,
       clicked: false
     },
     {
-      title: '10',
-      imgUrl: 'placeholder',
+      title: 'Rocket',
+      imgUrl: '/imgs/rocket.png',
       id: 10,
       clicked: false
     },
     {
-      title: '11',
-      imgUrl: 'placeholder',
+      title: 'Shang-Chi',
+      imgUrl: '/imgs/shang.jpeg',
       id: 11,
       clicked: false
     },
     {
-      title: '12',
-      imgUrl: 'placeholder',
+      title: 'Spiderman',
+      imgUrl: '/imgs/spiderman.jpeg',
       id: 12,
       clicked: false
     },
     {
-      title: '13',
-      imgUrl: 'placeholder',
+      title: 'Dr. Strange',
+      imgUrl: '/imgs/strange.jpeg',
       id: 13,
       clicked: false
     },
     {
-      title: '14',
-      imgUrl: 'placeholder',
+      title: 'Scarlet Witch',
+      imgUrl: '/imgs/switch.jpeg',
       id: 14,
       clicked: false
     },
     {
-      title: '15',
-      imgUrl: 'placeholder',
+      title: 'Thor',
+      imgUrl: '/imgs/thor.png',
       id: 15,
       clicked: false
     },
     {
-      title: '16',
-      imgUrl: 'placeholder',
+      title: 'Vision',
+      imgUrl: '/imgs/vision.jpeg',
       id: 16,
       clicked: false
     }

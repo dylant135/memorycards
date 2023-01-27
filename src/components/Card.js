@@ -15,7 +15,7 @@ export default function Card(props) {
                         key: card.id,
                         id: card.id,
                         clicked: true,
-                        imgUrl: 'placeholder'
+                        imgUrl: card.imgUrl
                     }
                 } else {
                     return {
@@ -23,7 +23,7 @@ export default function Card(props) {
                         key: card.id,
                         id: card.id,
                         clicked: card.clicked,
-                        imgUrl: 'placeholder'
+                        imgUrl: card.imgUrl
                     }
                 }
             })
@@ -37,7 +37,7 @@ export default function Card(props) {
             props.shuffle();
             addClick();
         }}>
-            {props.theCard.title}
+            <img src={props.theCard.imgUrl} className='cardimg' alt={props.theCard.title} />
         </div>
     )
 }
