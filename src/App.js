@@ -5,6 +5,7 @@ import Card from './components/Card';
 function App() {
   const [isPlaying, setIsPlaying] = React.useState(false)
   const [score, setScore] = React.useState(0)
+  const [finalScore, setFinalScore] = React.useState(false)
   const [highScore, setHighscore] = React.useState(
     JSON.parse(localStorage.getItem("highscore")) || 0
   )
@@ -130,6 +131,7 @@ function App() {
         setScore={setScore}
         initialState={initialState}
         setIsPlaying={setIsPlaying}
+        setFinalScore={setFinalScore}
         shuffle={shuffle}
         setCards={setCards}
       />
@@ -143,6 +145,7 @@ function App() {
   }
 
   function startGame() {
+    setFinalScore(false)
     setIsPlaying(true)
   }
 
@@ -154,6 +157,7 @@ function App() {
         <h2>highScore: {highScore}</h2>
       </div>
       {!isPlaying && <div className='startbtnContainer'><button className='startbtn' onClick={startGame}>Start</button></div>}
+      {finalScore && <div className='finalScore'>{finalScore}</div>}
       {isPlaying && <div className='cardsContainer'>
         {theCards}
       </div>}

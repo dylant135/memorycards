@@ -4,6 +4,17 @@ export default function Card(props) {
     function addClick() {
         if(props.theCard.clicked) {
             props.setIsPlaying(false)
+            if(props.score < 5) {
+                props.setFinalScore(`Your final score is ${props.score}. That is pretty embaressing, step it up.`)
+            } else if(props.score >= 5 && props.score < 10) {
+                props.setFinalScore(`Your final score is ${props.score}. Not too bad, but you could do better`)
+            } else if(props.score >= 10 && props.score < 16) {
+                props.setFinalScore(`Your final score is ${props.score}. Good game.`)
+            } else if(props.score === 16) {
+                props.setFinalScore('Congrats, you played a perfect game!')
+            } else {
+                props.setFinalScore('Rut Ro something went wrong.')
+            }
             props.setScore(0)
             props.setCards(props.initialState)
         } else {

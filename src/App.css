@@ -52,3 +52,10 @@ h2 {
   width: 150px;
   height: 150px;
 }
+
+.finalScore {
+  width: 80vw;
+  margin: auto;
+  text-align: center;
+  font-size: 2em;
+}
